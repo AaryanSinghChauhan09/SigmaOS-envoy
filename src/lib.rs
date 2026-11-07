@@ -1,37 +1,7 @@
-// SPDX-License-Identifier: Apache-2.0
-//! SigmaOS-envoy - Security/Server component
-//! Part of SigmaOS multi-repository architecture
+//! SigmaOS-envoy — utility model.
 
+pub mod util;
+pub mod options;
 
-/// Component
-pub struct Component {
-    name: &'static str,
-}
-
-impl Component {
-    pub fn new() -> Self {
-        Self { name: "SigmaOS-envoy" }
-    }
-}
-
-impl Default for Component {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn test_creation() {
-        let c = super::Component::new();
-        assert_eq!(c.name, "SigmaOS-envoy");
-    }
-}
-
-pub mod config;
-pub mod error;
-pub mod service;
-
-pub use config::Config;
-pub use error::{Error, Result};
+pub use util::Model;
+pub use options::{Mode, Options};
